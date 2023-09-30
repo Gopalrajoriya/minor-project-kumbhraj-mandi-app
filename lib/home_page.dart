@@ -1,13 +1,6 @@
 import 'package:kumbhraj_mandi/home.dart';
-import 'dart:math';
-import 'package:flutter/src/widgets/table.dart';
-
 import 'package:intl/intl.dart';
-
 import 'package:flutter/material.dart';
-import 'package:kumbhraj_mandi/home.dart';
-
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List postList = [];
+  @override
   @override
   Widget build(BuildContext context) {
     var date = DateTime.now();
@@ -24,16 +19,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: ManageMenu(),
       appBar: AppBar(
-
         title: Text('कुम्भराज मंडी'),
-         backgroundColor: Colors.green,
-
+        backgroundColor: Colors.green,
         centerTitle: true,
-
-
-
       ),
-
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
@@ -42,25 +31,19 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Expanded(
                 child: ListView(
                   physics: const BouncingScrollPhysics(),
                   children: [
-
                     Center(
                       child: Image.asset(
-                       'assets/opening.png',
-                       scale: 1.2,
-                     /*   height: 100 ,
+                        'assets/opening.png',
+                        scale: 1.2,
+                        /*   height: 100 ,
                         width:  800,
 */
                       ),
                     ),
-
-
-
-
                     Divider(
                       color: Colors.green,
                       indent: 40,
@@ -82,57 +65,64 @@ class _HomePageState extends State<HomePage> {
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Table(
-                          border:TableBorder.all(color: Colors.white) ,
-                          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                          border: TableBorder.all(color: Colors.white),
+                          defaultVerticalAlignment:
+                              TableCellVerticalAlignment.middle,
                           children: [
                             const TableRow(
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                              ),
-                              children: [
-                                TableCell(
-                                  verticalAlignment: TableCellVerticalAlignment.middle,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text("क्रमांक"),
-                                  ),
+                                decoration: BoxDecoration(
+                                  color: Colors.green,
                                 ),
-                                TableCell(
-                                  verticalAlignment: TableCellVerticalAlignment.middle,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text("फसल"),
+                                children: [
+                                  TableCell(
+                                    verticalAlignment:
+                                        TableCellVerticalAlignment.middle,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text("क्रमांक"),
+                                    ),
                                   ),
-                                ),
-                                TableCell(
-                                  verticalAlignment: TableCellVerticalAlignment.middle,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text("दाम"),
+                                  TableCell(
+                                    verticalAlignment:
+                                        TableCellVerticalAlignment.middle,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text("फसल"),
+                                    ),
                                   ),
-                                ),
-                              ]
-                            ),
-                           ...List.generate(5,
-                                    (index) => const TableRow(
+                                  TableCell(
+                                    verticalAlignment:
+                                        TableCellVerticalAlignment.middle,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text("दाम"),
+                                    ),
+                                  ),
+                                ]),
+                            ...List.generate(
+                                5,
+                                (index) => const TableRow(
                                       children: [
                                         TableCell(
-                                         verticalAlignment: TableCellVerticalAlignment.middle,
-                                          child:Padding(
+                                          verticalAlignment:
+                                              TableCellVerticalAlignment.middle,
+                                          child: Padding(
                                             padding: EdgeInsets.all(8.0),
                                             child: Text("data"),
                                           ),
                                         ),
                                         TableCell(
-                                          verticalAlignment: TableCellVerticalAlignment.middle,
-                                          child:Padding(
+                                          verticalAlignment:
+                                              TableCellVerticalAlignment.middle,
+                                          child: Padding(
                                             padding: EdgeInsets.all(8.0),
                                             child: Text("data"),
                                           ),
                                         ),
                                         TableCell(
-                                          verticalAlignment: TableCellVerticalAlignment.middle,
-                                          child:Padding(
+                                          verticalAlignment:
+                                              TableCellVerticalAlignment.middle,
+                                          child: Padding(
                                             padding: EdgeInsets.all(8.0),
                                             child: Text("data"),
                                           ),
@@ -143,21 +133,13 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     )
-
-
                   ],
                 ),
               ),
             ],
-
-
-
           ),
-
         ),
       ),
     );
   }
-
-
 }
